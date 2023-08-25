@@ -1,0 +1,43 @@
+body {
+  font-family: math, sans-serif;
+  text-align: center;
+  background-color: aliceblue;
+}
+
+.blog-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.blog-post {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+
+.post-header {
+    margin-bottom: 10px;
+}
+
+
+.post-date {
+    color: #999;
+}
+
+
+.post-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+.post-content {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+

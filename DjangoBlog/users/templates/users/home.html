@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet"  href="{% static 'blogs/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <span><i class="fas fa-user"></i>
+            <a class="navbar-link" href="{%url 'user-posts'%}" >  {% filter capfirst %}{{name}}{% endfilter %}'s Posts</a> </span>
+            <a class="navbar-link" href="{% url 'blog-home' %}">Home</a>
+            <a class="navbar-link" href="{% url 'updateuser' %}">Update Profile</a>
+        </div>
+
+        <div class="navbar-right">
+            <a class="navbar-link" href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    <div class="page-container">
+    {% block content %}{% endblock %}
+    </div>
+
+
+</body>
+</html>

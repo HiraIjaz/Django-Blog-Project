@@ -1,0 +1,14 @@
+{% extends "users/home.html" %}
+{% block title %} {{post.title}} {% endblock %}
+{% block content %}
+<article class="blog-post">
+    <h1 class="blog-header">{{post.title}}</h1>
+    <h2>Author: {{post.author}}</h2><br/>
+    <small class=".post-date">Created on: {{post.date_posted}}</small>
+    <br/>
+    <p class="post-content">{{post.content}}</p>
+    <br/>
+    <small><i>Last edited on {{post.last_edited}}</i></small>
+</article>
+{% endblock content %}
+

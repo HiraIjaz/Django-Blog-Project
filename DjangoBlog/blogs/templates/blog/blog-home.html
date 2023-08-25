@@ -1,0 +1,26 @@
+{% extends "users/home.html" %}
+{% block title %}Django Blog Home{% endblock %}
+{% block content %}
+    <h1 class="blog-heading">Django Blog Home</h1>
+    <hr>
+    <div class="posts-container" style="
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;"
+    >
+    {% for post in object_list %}
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <h3> By: {{ post.author }}</h3>
+            </div>
+            <p class="post-content">{{ post.content|truncatechars:300}}</p>
+            <a href="{% url 'post-details' post.pk%}">view details</a>
+        </article>
+
+    {% endfor %}
+    </div>
+{% endblock content %}
