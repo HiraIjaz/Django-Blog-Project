@@ -6,7 +6,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = CustomUser
-        fields = ("phone", 'name', 'email', 'gender', 'age')
+        fields = ('phone', 'name', 'email', 'gender', 'age')
 
 
 class UpdateUserForm(UserChangeForm):
