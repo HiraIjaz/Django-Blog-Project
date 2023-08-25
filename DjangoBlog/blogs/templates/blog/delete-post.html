@@ -1,0 +1,12 @@
+{% extends "users/home.html" %}
+{% block title %} Delete Post {% endblock %}
+{% block content %}
+<h1> {{post.title}}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <p>{{post.content}}</p>
+<strong>Are you sure?</strong>
+<button class="delete-post-btn">Delete Post</button>
+</form>
+
+{% endblock content %}

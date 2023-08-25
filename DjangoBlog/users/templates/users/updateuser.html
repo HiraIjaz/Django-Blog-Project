@@ -1,23 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Update Profile</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-</head>
-<body>
-    <div class="navbar">
-        <div class="navbar-left">
-            <span><i class="fas fa-user"></i> {% filter capfirst %}{{name}}{% endfilter %}</span>
-            <a class="navbar-link updateuserbutton" href="{% url 'home' %}">Home</a>
-        </div>
-        <div class="navbar-right">
-            <a class="navbar-link" href="{% url 'logout' %}">Logout</a>
-        </div>
-    </div>
+{% extends "users/home.html" %}
+{% block title %}Update Profile{% endblock %}
+{% block content %}
     <h1>Update Profile</h1>
     {% if messages %}
     <ul class="message-ul">
@@ -35,5 +18,5 @@
         <button type="submit">Update</button>
     </form>
     </div>
-</body>
-</html>
+
+{% endblock content %}

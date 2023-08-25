@@ -11,7 +11,7 @@ from .models import CustomUser
 
 
 def home(request):
-    return render(request, 'users/home.html', {'name': request.user})
+    return render(request, 'blog/blog-home.html', {'name': request.user})
 
 
 @csrf_exempt
@@ -22,12 +22,12 @@ def login_user(request):
         user = authenticate(request, phone=phone, password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'users/home.html', {'name': user})
         else:
             messages.error(request, 'Invalid credentials')
             return redirect('base')
-
-    return render(request, 'users/base.html')
+    else:
+        return render(request, 'users/base.html')
+    return redirect('blog-home')
 
 def signup(request):
     if request.method == 'POST':

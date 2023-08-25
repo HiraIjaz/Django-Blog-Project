@@ -1,0 +1,40 @@
+{% extends "users/home.html" %}
+{% block title %} {{name}}'s Posts {% endblock %}
+{% block content %}
+<div class="create-post-div">
+    <a class="create-post-link" href="{% url 'create-post'%}">Create New Post</a>
+</div>
+<h1 class="blog-heading">Your Posts</h1>
+<hr>
+{% if posts|length == 0 %}
+    <p>No posts yet!</p>
+{%else%}
+    <div style="
+width: 70%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+margin: auto;">
+        {% for post in posts %}
+        <article class="blog-post">
+            <div class="post-header">
+                <h2 class="post-title">{{ post.title }}</h2>
+            </div>
+            <div class="post-options-div">
+                <a class="create-post-link" href="{% url 'edit-post' post.pk %}">Modify Post</a>
+                <a class="create-post-link" href="#">View Comments</a>
+                <a class="create-post-link" href="{% url 'delete-post' post.pk %}">Delete Post</a>
+            </div>
+            <p>Created on: <i>{{post.date_posted}}</i></p>
+            <p>Last Modified: <i>{{post.last_edited}}</i></p>
+            <p class="post-content">{{ post.content}}</p>
+        </article>
+        {% endfor %}
+  </div>
+{% endif %}
+
+
+
+
+{% endblock content %}

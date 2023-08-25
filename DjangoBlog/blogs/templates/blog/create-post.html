@@ -1,0 +1,12 @@
+{% extends "users/home.html" %}
+{% block title %}Create Post {% endblock %}
+{% block content %}
+
+<h1> Create New Post</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button>Save</button>
+</form>
+
+{% endblock content %}
