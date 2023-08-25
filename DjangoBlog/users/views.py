@@ -1,9 +1,9 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import updateUserForm, signUpForm
+from .forms import UpdateUserForm, SignUpForm
 from .models import CustomUser
 
 
@@ -31,7 +31,7 @@ def login_user(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = signUpForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
             phone = form.cleaned_data['phone']
@@ -42,15 +42,15 @@ def signup(request):
                 print(f'{user} signed up ')
                 return redirect('base')
     else:
-        form = signUpForm()
+        form = SignUpForm()
 
     return render(request, 'users/signup.html', {'form': form})
 
 def update_profile(request):
     if request.user.is_authenticated:
         print(request.user)
-        current_user = CustomUser.objects.get(id=request.user.id)
-        form = updateUserForm(
+        current_user = get_object_or_404(CustomUser, id=request.user.id)
+        form = UpdateUserForm(
             request.POST or None, instance=current_user)
         if form.is_valid():
             form.save()
@@ -59,6 +59,7 @@ def update_profile(request):
         else:
             return render(request, 'users/updateuser.html', {'form': form, 'name': request.user})
     return redirect('updateuser')
+
 
 def logout_user(request):
     logout(request)

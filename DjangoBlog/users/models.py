@@ -5,10 +5,10 @@ from .managers import CustomUserManager
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
-GENDERS = [('M', 'Male'), ('F', 'Female'), ('O', 'Others')]
 
 
 class CustomUser(AbstractUser):
+    GENDERS = [('M', 'Male'), ('F', 'Female'), ('O', 'Others')]
     username = None
     phone = models.CharField(_("phone"), max_length=11, unique=True)
     email = models.EmailField(unique=True)
