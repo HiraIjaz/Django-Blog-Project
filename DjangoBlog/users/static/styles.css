@@ -141,3 +141,69 @@ h1 {
     background-color: #a5b8cf;
     color: #334;
 }
+.comments-div{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.comments-header{
+    width: fit-content;
+}
+.comment-div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #010134;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.comment-text{
+    text-align: left;
+}
+.blog-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.blog-post {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
+.post-header {
+    margin-bottom: 10px;
+}
+.post-date {
+    color: #999;
+}
+.post-title {
+    font-size: 20px;
+    margin: 0;
+}
+.post-content {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.comment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.comment-form textarea {
+    width: 80%; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    resize: vertical; /* Allow vertical resizing */
+}
+.comment-form label{
+    text-align:left;
+
+}

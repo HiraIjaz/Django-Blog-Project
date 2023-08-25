@@ -19,11 +19,11 @@ margin: auto;">
         {% for post in posts %}
         <article class="blog-post">
             <div class="post-header">
-                <h2 class="post-title">{{ post.title }}</h2>
+                <h2 class="post-title">{{ post.title|capfirst }}</h2>
             </div>
             <div class="post-options-div">
                 <a class="create-post-link" href="{% url 'edit-post' post.pk %}">Modify Post</a>
-                <a class="create-post-link" href="#">View Comments</a>
+                <a class="create-post-link" href="{% url 'post-details' post.pk%}">View Comments</a>
                 <a class="create-post-link" href="{% url 'delete-post' post.pk %}">Delete Post</a>
             </div>
             <p>Created on: <i>{{post.date_posted}}</i></p>

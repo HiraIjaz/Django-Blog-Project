@@ -14,8 +14,8 @@
     {% for post in object_list %}
         <article class="blog-post">
             <div class="post-header">
-                <h2 class="post-title">{{ post.title }}</h2>
-                <h3> By: {{ post.author }}</h3>
+                <h2 class="post-title">{{post.title|capfirst}}</h2>
+                <h3> By: {{ post.author|capfirst }}</h3>
             </div>
             <p class="post-content">{{ post.content|truncatechars:300}}</p>
             <a href="{% url 'post-details' post.pk%}">view details</a>
