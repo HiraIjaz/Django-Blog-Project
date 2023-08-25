@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Django blog</title>
+
+</head>
+<body>
+
+</div>
+  <h1>Welcome to Django Blogs</h1>
+  {% if messages %}
+    <ul >
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="container">
+    <h3>Have an account?</h3>
+
+    <form class="form" method="POST">
+      {% csrf_token %}
+      <label for="phone">Phone Number:</label>
+      <input id="phone" name="phone" type="text" maxlength="11">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password">
+      <button type="submit">Submit</button>
+
+    </form>
+    <p class="signup-link">Do not have an account? <a href="{% url 'signup'%}">Sign up</a></p>
+  </div>
+</body>
+</html>
