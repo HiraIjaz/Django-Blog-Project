@@ -1,0 +1,40 @@
+{% extends "users/home.html" %}
+{% block title %} {{post.title}} {% endblock %}
+{% block content %}
+<article class="blog-post">
+    <h1 class="blog-header">{{post.title|capfirst}}</h1>
+    <h2>Author: {{post.author|capfirst}}</h2><br/>
+    <small class=".post-date">Created on: {{post.date_posted}}</small>
+    <br/>
+    <p class="post-content">{{post.content}}</p>
+    <br/>
+    <small><i>Last edited on {{post.last_edited}}</i></small>
+</article>
+<h2 class="comments-header">Comments</h2>
+
+    <div class="comments-div">
+
+        <form class="comment-form" method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+        <h3>Add New Comment</h3>
+        {% if not post.comments.all%}
+            <p>No Comments Yet....</p>
+        {% else %}
+            {% for comment in post.comments.all%}
+                <div class="comment-div">
+                    <strong>
+                       {% filter capfirst %}{{comment.writer}}{% endfilter %}
+                    </strong>
+                    <small><i>{{comment.date_added|date:"d, F j, Y" }}</i></small>
+                    <p class="comment-text">{{comment.text}}</p>
+                </div>
+            {%endfor%}
+        {% endif %}
+        <br/>
+    </div>
+
+{% endblock content %}
+

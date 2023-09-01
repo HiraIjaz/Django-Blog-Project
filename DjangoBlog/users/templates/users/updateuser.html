@@ -1,0 +1,22 @@
+{% extends "users/home.html" %}
+{% block title %}Update Profile{% endblock %}
+{% block content %}
+    <h1>Update Profile</h1>
+    {% if messages %}
+    <ul class="message-ul">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+    <div class="container">
+
+
+    <form class="form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+    </div>
+
+{% endblock content %}
